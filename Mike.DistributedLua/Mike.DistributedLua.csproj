@@ -43,13 +43,33 @@
     <Reference Include="RabbitMQ.Client">
       <HintPath>..\packages\RabbitMQ.Client.3.0.2\lib\net30\RabbitMQ.Client.dll</HintPath>
     </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\packages\ServiceStack.Common.3.9.43\lib\net35\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\packages\ServiceStack.Common.3.9.43\lib\net35\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>..\packages\ServiceStack.Redis.3.9.43\lib\net35\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.3.9.43\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FunctionInfo.cs" />
+    <Compile Include="FunctionRunner.cs" />
+    <Compile Include="LuaRuntime.cs" />
+    <Compile Include="LuaTableToClrTypeMapper.cs" />
+    <Compile Include="NoDebugLogger.cs" />
+    <Compile Include="PlutoSpike.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedisSpike.cs" />
     <Compile Include="Spike.cs" />
+    <Compile Include="TicketingProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mike.DistributedLua.Messages\Mike.DistributedLua.Messages.csproj">
@@ -58,8 +78,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="LuaScript.lua" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="TicketingScript.lua" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
